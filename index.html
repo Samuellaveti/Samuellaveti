@@ -2,13 +2,20 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Professional Social Media Links</title>
+
   <!-- Font Awesome for Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
   <style>
-    /* Reset and Base Styles */
+    :root {
+      --card-bg: #f9f9f9;
+      --text-color: #333;
+      --shadow-color: rgba(0, 0, 0, 0.1);
+      --hover-shadow: rgba(0, 0, 0, 0.2);
+    }
+
     * {
       margin: 0;
       padding: 0;
@@ -16,131 +23,122 @@
     }
 
     body {
-      font-family: 'Times New Roman', Times, serif;
-      background: linear-gradient(135deg, #ece9e6, #ffffff);
-      height: 100vh;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #e0eafc, #cfdef3);
+      min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
+      padding: 20px;
     }
 
-    .wrapper {
-      background: rgba(255, 255, 255, 0.3);
-      backdrop-filter: blur(20px);
+    main.wrapper {
+      background-color: rgba(255, 255, 255, 0.25);
+      backdrop-filter: blur(12px);
       border-radius: 20px;
-      padding: 40px;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+      box-shadow: 0 10px 30px var(--shadow-color);
+      padding: 40px 30px;
+      max-width: 960px;
+      width: 100%;
       display: flex;
       flex-wrap: wrap;
-      gap: 30px;
+      gap: 24px;
       justify-content: center;
-      max-width: 800px;
-      width: 90%;
     }
 
-    .social-card {
-      width: 120px;
-      height: 120px;
-      background-color: rgba(255, 255, 255, 0.8);
-      border-radius: 16px;
+    a.social-card {
+      width: 130px;
+      height: 130px;
+      background-color: var(--card-bg);
+      border-radius: 20px;
+      text-decoration: none;
+      color: var(--text-color);
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      text-decoration: none;
-      color: #333;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 4px 4px 12px var(--shadow-color),
+                  -4px -4px 12px white;
+      transition: all 0.3s ease;
       position: relative;
     }
 
-    .social-card:hover {
-      transform: translateY(-8px) scale(1.05);
-      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+    a.social-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 24px var(--hover-shadow);
     }
 
-    .social-card i {
+    a.social-card i {
       font-size: 36px;
       margin-bottom: 10px;
-      transition: color 0.3s ease;
+      transition: transform 0.4s ease;
     }
 
-    .social-card span {
-      font-size: 14px;
-      font-weight: bold;
+    a.social-card:hover i {
+      transform: scale(1.2);
+    }
+
+    a.social-card span {
+      font-weight: 600;
+      font-size: 15px;
       text-align: center;
     }
 
-    /* Individual Icon Colors */
+    /* Unique Brand Colors */
     .instagram i { color: #E1306C; }
     .youtube i { color: #FF0000; }
     .contact i { color: #007BFF; }
     .website i { color: #28a745; }
     .reviews i { color: #f39c12; }
 
-    /* Responsive Design */
+    /* Responsive */
     @media (max-width: 600px) {
-      .social-card {
+      a.social-card {
         width: 100px;
         height: 100px;
       }
-
-      .social-card i {
+      a.social-card i {
         font-size: 28px;
       }
-
-      .social-card span {
+      a.social-card span {
         font-size: 12px;
       }
-    }
-
-    /* Extra animation (optional) */
-    @keyframes float {
-      0% { transform: translateY(0); }
-      50% { transform: translateY(-4px); }
-      100% { transform: translateY(0); }
-    }
-
-    .social-card:hover i {
-      animation: float 1s ease-in-out infinite;
     }
   </style>
 </head>
 <body>
 
-  <div class="wrapper">
-
+  <main class="wrapper" role="navigation" aria-label="Social Media Links">
     <!-- Instagram -->
-    <a href="https://www.instagram.com/yourprofile" target="_blank" class="social-card instagram" title="Instagram">
+    <a href="https://www.instagram.com/yourprofile" target="_blank" class="social-card instagram" title="Follow us on Instagram" aria-label="Instagram">
       <i class="fab fa-instagram"></i>
       <span>Instagram</span>
     </a>
 
     <!-- YouTube -->
-    <a href="https://www.youtube.com/yourchannel" target="_blank" class="social-card youtube" title="YouTube">
+    <a href="https://www.youtube.com/yourchannel" target="_blank" class="social-card youtube" title="Visit our YouTube" aria-label="YouTube">
       <i class="fab fa-youtube"></i>
       <span>YouTube</span>
     </a>
 
     <!-- Contact -->
-    <a href="mailto:youremail@example.com" class="social-card contact" title="Contact">
+    <a href="mailto:youremail@example.com" class="social-card contact" title="Email us" aria-label="Contact">
       <i class="fas fa-envelope"></i>
       <span>Contact</span>
     </a>
 
     <!-- Website -->
-    <a href="https://www.yourwebsite.com" target="_blank" class="social-card website" title="Website">
+    <a href="https://www.yourwebsite.com" target="_blank" class="social-card website" title="Visit our website" aria-label="Website">
       <i class="fas fa-globe"></i>
       <span>Website</span>
     </a>
 
     <!-- Reviews -->
-    <a href="https://www.google.com/search?q=your+reviews" target="_blank" class="social-card reviews" title="Reviews">
+    <a href="https://www.google.com/search?q=your+reviews" target="_blank" class="social-card reviews" title="Read our reviews" aria-label="Reviews">
       <i class="fas fa-star"></i>
       <span>Reviews</span>
     </a>
-
-  </div>
+  </main>
 
 </body>
 </html>
